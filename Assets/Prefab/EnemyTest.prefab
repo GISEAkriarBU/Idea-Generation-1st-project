@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5610779398475196574}
   - component: {fileID: -1057132824721925177}
   - component: {fileID: -826059301338971893}
+  - component: {fileID: -4755486845873852600}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -161,10 +162,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4757556104822651924}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 110b252d0155b384cb59591ca6d2b9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
   damage: 1
   hitCooldown: 1
+--- !u!114 &-4755486845873852600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757556104822651924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591e0e994b610684397d6c660b693d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  hp: 1

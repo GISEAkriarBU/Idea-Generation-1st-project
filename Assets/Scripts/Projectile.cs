@@ -23,8 +23,14 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            // ตัวอย่าง
-            // other.GetComponent<EnemyHealth>()?.TakeDamage(damage);
+            // ทำดาเมจศัตรู
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+
+            // ทำลายกระสุน
             Destroy(gameObject);
         }
     }
