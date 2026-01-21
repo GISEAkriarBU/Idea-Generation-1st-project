@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
         float V = Input.GetAxis("Vertical");
         Vector3 velocity = rb.linearVelocity;
         velocity.x = H * speed;
-        velocity.y = V * speed;
+        velocity.z = V * speed;
         rb.linearVelocity = velocity;
 
 
