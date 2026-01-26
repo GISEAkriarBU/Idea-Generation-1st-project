@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213427945}
   - component: {fileID: 213427944}
+  - component: {fileID: 213427946}
   m_Layer: 0
   m_Name: StructureSpawner
   m_TagString: Untagged
@@ -169,6 +170,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &213427946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213427943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895c1275a0c364a40920a69486396de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StructureSpaening
+  StructurePrefab: {fileID: 8729823847791731484, guid: e42173c51a40a2945b940a0cd483b0c6, type: 3}
+  Player: {fileID: 218886352}
+  STructurePrefab: []
+  spawnRadius: 15
+  spawnInterval: 5
+  maxStructure: 3
 --- !u!4 &218886352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4462109874546453319, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
