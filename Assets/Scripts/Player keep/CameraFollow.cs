@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
         if (!target) return;
 
         Vector3 targetPos = target.position + offset;
-        targetPos.z = transform.position.z; // ล็อก Z สำหรับ 2.5D
+       // targetPos.z = transform.position.z; // ล็อก Z สำหรับ 2.5D
 
         transform.position = Vector3.SmoothDamp(
             transform.position,
