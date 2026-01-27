@@ -8,8 +8,9 @@ public class EnemySpawn : MonoBehaviour
 
     public float spawnRadius = 12f;
     public float spawnInterval = 1.5f;
-    public int maxEnemies = 50;
-    //float difficultyTimer;
+    public int maxEnemies = 25;
+    float difficultyTimer;
+
 
     float timer;
 
@@ -23,10 +24,11 @@ public class EnemySpawn : MonoBehaviour
             timer = 0;
         }
 
-        //difficultyUpTime
-        //difficultyTimer += Time.deltaTime;
+        //difficultyUpTimer
+        difficultyTimer += Time.deltaTime;
 
-        //spawnInterval = Mathf.Max(0.3f, 1.5f - difficultyTimer * 0.02f);
+        spawnInterval = Mathf.Max(0.3f, 1.0f - difficultyTimer * 0.1f);
+        
     }
 
     void SpawnEnemy()

@@ -1,8 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int hp = 3;
+    public int hp = 1;
+    public int scoreValue = 10;
 
     public void TakeDamage(int damage)
     {
@@ -10,7 +11,15 @@ public class EnemyHealth : MonoBehaviour
 
         if (hp <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void Die()
+    {
+        // เพิ่ม Score
+        ScoreManager.Instance?.AddScore(scoreValue);
+
+        Destroy(gameObject);
     }
 }

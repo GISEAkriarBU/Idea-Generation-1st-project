@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 54337564384118873}
   - component: {fileID: 6877653895641721390}
   - component: {fileID: -9056129765289435445}
+  - component: {fileID: -2330264309816764457}
   - component: {fileID: -5211701338529531712}
   m_Layer: 0
   m_Name: 'Candy v.1 '
@@ -105,6 +106,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeedPickup
   speedBonus: 5
+--- !u!114 &-2330264309816764457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376806580993836681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc05a267e8991394786a0d974aeed4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransformPickup
 --- !u!136 &-5211701338529531712
 CapsuleCollider:
   m_ObjectHideFlags: 0

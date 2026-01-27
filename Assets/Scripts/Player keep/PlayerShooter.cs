@@ -5,6 +5,8 @@ public class PlayerShooter : MonoBehaviour
     public GameObject projectilePrefab;
     public float fireRate = 1f;
     public float range = 10f;
+    public bool tripleShot = false;
+    public float spreadAngle = 15f;
 
     float timer;
 
@@ -17,6 +19,7 @@ public class PlayerShooter : MonoBehaviour
             Shoot();
             timer = 0;
         }
+
     }
 
     void Shoot()
@@ -34,6 +37,7 @@ public class PlayerShooter : MonoBehaviour
         );
 
         proj.GetComponent<Projectile>().SetDirection(dir);
+
     }
 
     GameObject FindNearestEnemy()

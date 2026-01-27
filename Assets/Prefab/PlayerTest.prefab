@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 1187436342987877415}
   - component: {fileID: 8388611675817432111}
   - component: {fileID: 1408592976706882267}
+  - component: {fileID: 1627905456965876976}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Player
@@ -264,6 +265,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3920867972636082654, guid: e2a0c738792062948a2fca3174c34860, type: 3}
   fireRate: 1
   range: 10
+  tripleShot: 0
+  spreadAngle: 15
 --- !u!114 &1408592976706882267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,10 +274,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5280375874315262172}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc8a469012c7ac245bc57fc38de990e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHP: 10
   currentHP: 0
+--- !u!114 &1627905456965876976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280375874315262172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703f8bd4ab11e844094a493b8500b9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTransform
+  defaultSprite: {fileID: 21300000, guid: b451955fcf2a2f14481507ee9544cee3, type: 3}
+  transformSprite: {fileID: 21300000, guid: a9b1bd45f5a6b344f9a243d68607b345, type: 3}
+  transformDuration: 10
+  fireRateMultiplier: 0.4
+  enableTripleShot: 0
+  speedBonus: 5
