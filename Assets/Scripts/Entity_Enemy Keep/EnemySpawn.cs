@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    //public GameObject enemyPrefab;
     public Transform player;
     public GameObject[] enemyPrefabs;
 
@@ -37,10 +37,10 @@ public class EnemySpawn : MonoBehaviour
 
         Vector3 spawnPos = player.position + randomDir * spawnRadius;
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        //Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
 
         //EnemyType
-        //Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)],spawnPos,Quaternion.identity);
+        Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPos, Quaternion.identity);
     }
 
     int EnemyCount()

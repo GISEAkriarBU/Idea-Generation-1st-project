@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: f72d3ea951400344e9e6fa26a157cea0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - dropItemPrefab: {instanceID: 0}
+  - dropPoint: {instanceID: 0}
+  - cameraShake: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Rendering.LookDev;
+using UnityEngine;
 
 public class DestructibleStructure : MonoBehaviour
 {
@@ -7,7 +8,16 @@ public class DestructibleStructure : MonoBehaviour
 
     private bool playerInside = false;
     private bool completed = false;
+    public GameObject dropItemPrefab;
+    public Transform dropPoint;
+    public CameraShake cameraShake;
+    public float shakeIntensity = 0.1f;
+    Vector3 originalLocalPos;
 
+    void Start()
+    {
+        originalLocalPos = transform.localPosition;
+    }
     void Update()
     {
         if (completed) return;
@@ -15,6 +25,8 @@ public class DestructibleStructure : MonoBehaviour
         if (playerInside)
         {
             progress += Time.deltaTime;
+
+            ShakeStructure();
 
             if (progress >= captureTime)
             {
@@ -24,23 +36,32 @@ public class DestructibleStructure : MonoBehaviour
         else
         {
             progress = Mathf.Max(0, progress - Time.deltaTime);
+            ResetPosition();
         }
+    }
+    void ShakeStructure()
+    {
+        Vector3 offset = Random.insideUnitSphere * shakeIntensity;
+        offset.y = 0; // ถ้าไม่อยากให้ลอยขึ้นลง
+        transform.localPosition = originalLocalPos + offset;
+    }
+
+    void ResetPosition()
+    {
+        transform.localPosition = originalLocalPos;
     }
 
     void CompleteCapture()
     {
         completed = true;
 
-        // 1. ให้รางวัล
-        GiveReward();
+        ResetPosition(); // ✅ กลับตำแหน่งก่อนพัง
 
-        // 2. เอฟเฟกต์พัง
+        GiveReward();
         PlayDestroyEffect();
 
-        // 3. ทำลาย structure
         Destroy(gameObject, 0.2f);
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -55,12 +76,19 @@ public class DestructibleStructure : MonoBehaviour
 
     void GiveReward()
     {
-        // drop item / buff / currency
+        if (dropItemPrefab != null)
+        {
+            Instantiate(
+                dropItemPrefab,
+                dropPoint != null ? dropPoint.position : transform.position,
+                Quaternion.identity
+            );
+        }
     }
 
     void PlayDestroyEffect()
     {
-        // particle / sound / animation 
+        // particle / sound / animation
 
     }
     // gpt gen ล้วนๆเน้อ

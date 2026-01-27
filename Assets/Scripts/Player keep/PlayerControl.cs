@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpforce = 7f;
     Rigidbody rb;
     bool isGrounded;
+    InteractableDrop currentInteract;
 
 
     void Start()
@@ -13,6 +14,18 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && currentInteract != null)
+        {
+            currentInteract.Interact();
+        }
+    }
+    public void AddSpeed(float amouth)
+    {
+        speed += amouth;
+        Debug.Log("Speed = " + speed);
+    }
     void FixedUpdate()
     {
         float H = Input.GetAxis("Horizontal");
@@ -42,11 +55,29 @@ public class PlayerControl : MonoBehaviour
             isGrounded = false;
         }
     }
-    void LateUpdate()
+    void OnTriggerEnter(Collider other)
+    {
+        InteractableDrop interact = other.GetComponent<InteractableDrop>();
+        if (interact != null)
+        {
+            currentInteract = interact;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<InteractableDrop>() != null)
+        {
+            currentInteract = null;
+        }
+    }
+
+        void LateUpdate()
     {
         //หลังจากได้ Sprite 2D
         //transform.forward = Camera.main.transform.forward;
     }
-
     
+    
+
+
 }

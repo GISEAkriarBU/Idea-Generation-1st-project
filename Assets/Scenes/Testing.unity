@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 1417429858}
   - component: {fileID: 1417429857}
   - component: {fileID: 1417429860}
+  - component: {fileID: 1417429861}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -718,6 +719,19 @@ MonoBehaviour:
   target: {fileID: 218886352}
   offset: {x: 0, y: 6, z: -8}
   smoothTime: 0.1
+--- !u!114 &1417429861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417429855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e68077d15d275849af3f3ff8deda006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  shakeIntensity: 0.5
 --- !u!1001 &1870220982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -910,6 +924,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1408592976706882267, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
+      propertyPath: maxHP
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408592976706882267, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4462109874546453319, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

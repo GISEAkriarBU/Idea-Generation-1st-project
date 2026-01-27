@@ -246,3 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleStructure
   captureTime: 3
+  dropItemPrefab: {fileID: 1376806580993836681, guid: 406d0e13d32bdc44d82dfc806b4aab7a, type: 3}
+  dropPoint: {fileID: 0}
+  cameraShake: {fileID: 0}
