@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public int score = 0;
     public TextMeshProUGUI scoreText;
 
+
     void Awake()
     {
         if (Instance == null)
