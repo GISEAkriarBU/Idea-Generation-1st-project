@@ -1,4 +1,4 @@
-﻿using UnityEditor.Rendering.LookDev;
+﻿
 using UnityEngine;
 
 public class DestructibleStructure : MonoBehaviour
@@ -13,18 +13,20 @@ public class DestructibleStructure : MonoBehaviour
     public CameraShake cameraShake;
     public float shakeIntensity = 0.1f;
     Vector3 originalLocalPos;
-
+    [SerializeField] private AudioSource soundCapture;
     void Start()
     {
         originalLocalPos = transform.localPosition;
+        soundCapture = GetComponent<AudioSource>();
     }
     void Update()
     {
-        if (completed) return;
-
         if (playerInside)
         {
             progress += Time.deltaTime;
+
+            if (!soundCapture.isPlaying)
+                soundCapture.Play();
 
             ShakeStructure();
 
@@ -35,6 +37,9 @@ public class DestructibleStructure : MonoBehaviour
         }
         else
         {
+            if (soundCapture.isPlaying)
+                soundCapture.Stop();
+
             progress = Mathf.Max(0, progress - Time.deltaTime);
             ResetPosition();
         }

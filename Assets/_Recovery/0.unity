@@ -233,7 +233,7 @@ MonoBehaviour:
   STructurePrefab: []
   spawnRadius: 15
   spawnInterval: 5
-  maxStructure: 20
+  maxStructure: 3
 --- !u!4 &218886352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4462109874546453319, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
@@ -1691,14 +1691,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4557134965437977544, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431481081096265837, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1408592976706882267, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
       propertyPath: maxHP
       value: 5
@@ -1707,10 +1699,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1627905456965876976, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
-      propertyPath: transformAudio
-      value: 
-      objectReference: {fileID: -6069806544780029397, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
     - target: {fileID: 1627905456965876976, guid: c32956e458e66ee46814d0d1f887849a, type: 3}
       propertyPath: fireRateMultiplier
       value: 0.2

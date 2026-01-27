@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -12,13 +12,23 @@ public class ScoreManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // ⭐ สำคัญ
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     void Start()
     {
+        UpdateUI();
+    }
+    public void SetScoreText(TextMeshProUGUI newText)
+    {
+        scoreText = newText;
         UpdateUI();
     }
 

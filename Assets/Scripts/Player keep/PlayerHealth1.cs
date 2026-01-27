@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -25,5 +26,6 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("PLAYER DEAD");
         // Destroy(gameObject); // เปิดทีหลัง
+        SceneManager.LoadScene("EndScene");
     }
 }

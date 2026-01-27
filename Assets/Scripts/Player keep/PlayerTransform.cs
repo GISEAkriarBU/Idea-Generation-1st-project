@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerTransform : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class PlayerTransform : MonoBehaviour
     public float fireRateMultiplier = 0.4f;
     public bool enableTripleShot = true;
     public float speedBonus = 5f;
+
+
+    [Header("Sound")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip transformClip;
+    [SerializeField] private AudioClip revertClip;
 
     SpriteRenderer sr;
     PlayerShooter shooter;
@@ -42,29 +49,35 @@ public class PlayerTransform : MonoBehaviour
         if (transformRoutine != null)
             StopCoroutine(transformRoutine);
 
+        if (audioSource != null && transformClip != null)
+            audioSource.PlayOneShot(transformClip);
+
         transformRoutine = StartCoroutine(TransformTimer());
     }
 
+
     IEnumerator TransformTimer()
     {
-        // ===== TRANSFORM =====
+        // TRANSFORM
         sr.sprite = transformSprite;
 
         shooter.fireRate = originalFireRate * fireRateMultiplier;
         shooter.tripleShot = enableTripleShot;
-
         movement.speed = originalSpeed + speedBonus;
 
         yield return new WaitForSeconds(transformDuration);
 
-        // ===== BACK TO DEFAULT =====
+        // REVERT
         sr.sprite = defaultSprite;
+
+        if (audioSource != null && revertClip != null)
+            audioSource.PlayOneShot(revertClip);
 
         shooter.fireRate = originalFireRate;
         shooter.tripleShot = false;
-
         movement.speed = originalSpeed;
 
         transformRoutine = null;
     }
+
 }

@@ -1,13 +1,19 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TransformPickup : MonoBehaviour
 {
+    bool used = false;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (used) return;
+
+        PlayerTransform player = other.GetComponent<PlayerTransform>();
+        if (player != null)
         {
-            other.GetComponent<PlayerTransform>()?.ActivateTransform();
-            Destroy(gameObject);
+            used = true;              // 🔒 ล็อกทันที
+            player.ActivateTransform();
+            Destroy(gameObject);      // หรือ Disable collider
         }
     }
 }

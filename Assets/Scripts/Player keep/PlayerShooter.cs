@@ -9,7 +9,9 @@ public class PlayerShooter : MonoBehaviour
     public float spreadAngle = 15f;
 
     float timer;
-
+    [Header("Sound")]
+    [SerializeField] private AudioSource shootAudio;
+    [SerializeField] private AudioClip shootClip;
     void Update()
     {
         timer += Time.deltaTime;
@@ -28,7 +30,7 @@ public class PlayerShooter : MonoBehaviour
         if (!target) return;
 
         Vector3 dir = target.transform.position - transform.position;
-        dir.y = 0; // ยิงบนระนาบ 2.5D
+        dir.y = 0;
 
         GameObject proj = Instantiate(
             projectilePrefab,
@@ -38,6 +40,11 @@ public class PlayerShooter : MonoBehaviour
 
         proj.GetComponent<Projectile>().SetDirection(dir);
 
+        // 🔊 เล่นเสียงยิง
+        if (shootAudio != null && shootClip != null)
+        {
+            shootAudio.PlayOneShot(shootClip);
+        }
     }
 
     GameObject FindNearestEnemy()
